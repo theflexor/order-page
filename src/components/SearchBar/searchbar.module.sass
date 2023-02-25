@@ -1,0 +1,23 @@
+
+.searchBar
+    @apply flex justify-between py-[20px] gap-[40px]
+    &_left
+        @apply flex
+        &_logo
+            @apply flex mr-[40px]
+        &_select
+            @apply flex justify-center items-center w-[135px] h-[48px] rounded-[5px] bg-[#F8F0F0]
+            .catalog
+                @apply w-max bg-transparent outline-none pr-6 appearance-none
+    &_input
+        @apply flex-1 flex items-center relative
+        input
+            border: 1px solid #E6E6E6
+            @apply h-[48px] bg-[#F6F6F6]  basis-[741px] pl-[50px] rounded-[5px]
+        img
+            @apply absolute left-[22px]
+    &_buttons
+        @apply flex gap-[30px]
+        button
+            border: 1px solid #E6E6E6
+            @apply flex justify-center items-center w-[48px] h-[48px] bg-[#F7F7F7] rounded-[5px]
