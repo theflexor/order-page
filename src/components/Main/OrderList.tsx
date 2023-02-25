@@ -98,10 +98,7 @@ export const OrderList = () => {
                       {item.action ? (
                         <p className="flex flex-col md:flex-row">
                           <span
-                            style={{
-                              color: item.action && "#f00",
-                              marginRight: "4px",
-                            }}
+                            className={`${item.action ? 'text-[#f00000] mr-[4px]' : ''}`}
                           >
                             {item.action}c
                           </span>
