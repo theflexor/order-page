@@ -11,7 +11,6 @@ import {
   OrderList,
   RouteText,
 } from "./components"
-import styles from "./styles/App.module.sass"
 
 export interface IProduct {
   image: string

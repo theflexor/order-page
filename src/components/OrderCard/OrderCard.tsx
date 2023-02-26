@@ -1,5 +1,3 @@
-import React from "react"
-import { Button } from "react-bootstrap"  
 
 export const OrderCard = ({count}: {count:number}) => {
   return (

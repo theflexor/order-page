@@ -15,7 +15,9 @@ import userIcon from "./user.png"
 import whatsApp from "./whatsup.svg"
 import xIcon from "./x.png"
 import logoStudio from './logoStudio.svg'
+import logoKan from './logokan.jpg'
 export {
+  logoKan,
   emailLogo,
   phoneLogo,
   logoIcon,

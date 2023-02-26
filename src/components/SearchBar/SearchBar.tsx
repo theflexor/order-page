@@ -1,7 +1,5 @@
-import React, { InputHTMLAttributes, useRef, useState } from "react"
 import { Dropdown, Form, Navbar } from "react-bootstrap"
 import { ReactSearchAutocomplete } from "react-search-autocomplete"
-import { IProduct } from "../../App"
 
 import {
   basketIcon,
@@ -11,22 +9,7 @@ import {
   userIcon,
 } from "../../assets"
 
-export const SearchBar = ({products}: {products:number}) => {
-  const [search, setSearch] = useState("")
-  const [filterActive, setFilterActive] = useState(false)
-  let data = [
-    "graphic card",
-    "geforce rtx 4090 24g",
-    "samsung 970evo 1tb",
-    "asus rog g15 rtx3060",
-    "samsung s23 512gb",
-    "iphone 14 pro max 256gb",
-  ]
-
-  function searchFilter() {
-    setFilterActive(!filterActive)
-  }
-
+export const SearchBar = ({ products }: { products: number }) => {
   const items = [
     {
       id: 0,
@@ -54,7 +37,7 @@ export const SearchBar = ({products}: {products:number}) => {
     },
   ]
 
-  const formatResult = (item:any) => {
+  const formatResult = (item: any) => {
     return (
       <>
         <span style={{ display: "block", textAlign: "left" }}>
@@ -71,7 +54,7 @@ export const SearchBar = ({products}: {products:number}) => {
     <div className="container">
       <Navbar bg="light gap-[5px] bg-white flex-wrap  justify-content-between sm:gap-[30px]">
         <Navbar.Brand href="#home">
-          <img src={logoIcon} alt="" />
+          <img className="h-full" src={logoIcon} alt="" />
         </Navbar.Brand>
         <Dropdown>
           <Dropdown.Toggle
@@ -111,7 +94,9 @@ export const SearchBar = ({products}: {products:number}) => {
         <div className="flex gap-[16px]">
           <button className="hover:bg-[#EA5A5A] relative duration-200 border-1 border-[#3b3131] bg-[#F7F7F7] border-solid rounded-[5px] h-[48px] w-[48px] flex justify-center items-center">
             <img src={basketIcon} alt="" />
-            <span className="absolute z-40 bg-[#E11E26] right-7 top-6 text-white text-[10px] w-[13px] h-[13px] flex justify-center items-center   rounded-full ">{products}</span>
+            <span className="absolute z-40 bg-[#E11E26] right-7 top-6 text-white text-[10px] w-[13px] h-[13px] flex justify-center items-center   rounded-full ">
+              {products}
+            </span>
           </button>
           <button className="hover:bg-[#EA5A5A] duration-200 border-1 border-[#E6E6E6] bg-[#F7F7F7] border-solid rounded-[5px] h-[48px] w-[48px] flex justify-center items-center">
             <img src={userIcon} alt="" />

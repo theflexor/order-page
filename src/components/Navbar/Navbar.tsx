@@ -4,7 +4,6 @@ import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import Offcanvas from "react-bootstrap/Offcanvas"
 
-import classNames from "classnames"
 
 import { emailLogo, phoneLogo } from "../../assets/index"
 

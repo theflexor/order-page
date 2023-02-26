@@ -1,5 +1,5 @@
-import React, { useState, useTransition } from "react"
-import { Button, Collapse, Row } from "react-bootstrap"
+import React, { useState } from "react"
+import {  Collapse, Row } from "react-bootstrap"
 import Table from "react-bootstrap/esm/Table"
 
 import { IProduct } from "../../App"
