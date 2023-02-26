@@ -16,6 +16,9 @@ import whatsApp from "./whatsup.svg"
 import xIcon from "./x.png"
 import logoStudio from './logoStudio.svg'
 import logoKan from './logokan.jpg'
+import w1 from './w1.png'
+import w2 from './w2.png'
+import w3 from './w3.png'
 export {
   logoKan,
   emailLogo,
@@ -35,4 +38,5 @@ export {
   instagram,
   logoStudio,
   logoFooter,
+  w1,w2,w3
 }

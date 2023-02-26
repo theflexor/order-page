@@ -101,15 +101,13 @@ export const OrderList: React.FC<IorderList> = ({
                         item.price * item.count
                       )}
                     </td>
-                    <td>
-                      <button className="hover:bg-red-200 rounded-full  p-1 duration-200">
+                    <td className="relative">
                         <img
                           src={xIcon}
-                          className="cursor-pointer"
+                          className="cursor-pointer absolute flex top-[65px] w-[12px] h-[12px]"
                           onClick={() => deleteProduct(item.id)}
                           alt=""
                         />
-                      </button>
                     </td>
                   </tr>
                 ))}

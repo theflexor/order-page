@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Col, Row } from "react-bootstrap"
+import { w1, w2, w3 } from "./assets"
 
 import {
   Delivery,
@@ -25,7 +26,7 @@ export interface IProduct {
 let lists: IProduct[] = [
   {
     id: 1,
-    image: "/src/assets/Rectangle 3207-1.png",
+    image: w1,
     title: "Lorem ipsum dolor sit amet consectetur. Duis",
     article: "L434-GH43",
     count: 1,
@@ -33,7 +34,7 @@ let lists: IProduct[] = [
   },
   {
     id: 2,
-    image: "/src/assets/Rectangle 3207-2.png",
+    image: w2,
     title: "Lorem ipsum dolor sit amet consectetur. Duis",
     article: "L434-GH43",
     count: 1,
@@ -41,7 +42,7 @@ let lists: IProduct[] = [
   },
   {
     id: 3,
-    image: "/src/assets/Rectangle 3207.png",
+    image: w3,
     title: "Lorem ipsum dolor sit amet consectetur. Duis",
     article: "L434-GH43",
     count: 1,
