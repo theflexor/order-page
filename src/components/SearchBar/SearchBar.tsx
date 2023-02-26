@@ -72,11 +72,7 @@ export const SearchBar = ({ products }: { products: number }) => {
           </Dropdown.Menu>
         </Dropdown>
         <Form className="flex-1 relative order-md-0 order-1 w-full z-50 min-w-[300px] ">
-          <img
-            src={searchIcon}
-            className="absolute z-50 top-[17px] left-[22px]"
-            alt=""
-          />
+        
           <ReactSearchAutocomplete
             styling={{
               borderRadius: "5px",
@@ -86,7 +82,6 @@ export const SearchBar = ({ products }: { products: number }) => {
             }}
             items={items}
             autoFocus
-            showIcon={false}
             formatResult={formatResult}
           />
         </Form>
