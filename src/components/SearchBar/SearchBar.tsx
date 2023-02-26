@@ -1,6 +1,7 @@
 import React, { InputHTMLAttributes, useRef, useState } from "react"
 import { Dropdown, Form, Navbar } from "react-bootstrap"
 import { ReactSearchAutocomplete } from "react-search-autocomplete"
+import { IProduct } from "../../App"
 
 import {
   basketIcon,
@@ -53,34 +54,14 @@ export const SearchBar = ({products}: {products:number}) => {
     },
   ]
 
-  const handleOnSearch = (string, results) => {
-    // onSearch will have as the first callback parameter
-    // the string searched and for the second the results.
-    console.log(string, results)
-  }
-
-  const handleOnHover = (result) => {
-    // the item hovered
-    console.log(result)
-  }
-
-  const handleOnSelect = (item) => {
-    // the item selected
-    console.log(item)
-  }
-
-  const handleOnFocus = () => {
-    console.log("Focused")
-  }
-
-  const formatResult = (item) => {
+  const formatResult = (item:any) => {
     return (
       <>
         <span style={{ display: "block", textAlign: "left" }}>
-          id: {item.id}
+          id: {item?.id}
         </span>
         <span style={{ display: "block", textAlign: "left" }}>
-          name: {item.name}
+          name: {item?.name}
         </span>
       </>
     )
@@ -122,10 +103,6 @@ export const SearchBar = ({products}: {products:number}) => {
               paddingLeft: "50px",
             }}
             items={items}
-            onSearch={handleOnSearch}
-            onHover={handleOnHover}
-            onSelect={handleOnSelect}
-            onFocus={handleOnFocus}
             autoFocus
             showIcon={false}
             formatResult={formatResult}

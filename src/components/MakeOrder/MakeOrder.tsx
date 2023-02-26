@@ -38,7 +38,7 @@ export const MakeOrder = () => {
           <Form.Control className="inputStyle" />
           <label className="inputStyle_label">Доп телефон или whatsapp</label>
         </Col>
-      </Row>
+        </Row>
     </Form>
   )
 }
