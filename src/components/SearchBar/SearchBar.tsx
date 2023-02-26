@@ -82,8 +82,7 @@ export const SearchBar = ({ products }: { products: number }) => {
               borderRadius: "5px",
               backgroundColor: "#F6F6F6",
               border: "1px solid #E6E6E6",
-              height: "48px",
-              paddingLeft: "50px",
+              height: "48px"
             }}
             items={items}
             autoFocus
