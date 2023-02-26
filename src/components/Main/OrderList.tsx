@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import {  Collapse, Row } from "react-bootstrap"
+import { Collapse, Row } from "react-bootstrap"
 import Table from "react-bootstrap/esm/Table"
 
 import { IProduct } from "../../App"
@@ -55,7 +55,7 @@ export const OrderList: React.FC<IorderList> = ({
               </thead>
               <tbody>
                 {products.map((item) => (
-                  <tr key={item.id} className="align-middle h-[140px]">
+                  <tr key={item.id} className="align-middle h-[140px] relative">
                     <td>
                       <div>
                         <img src={item.image} alt="" />
@@ -94,20 +94,20 @@ export const OrderList: React.FC<IorderList> = ({
                               color: "gray",
                             }}
                           >
-                            {item.price }c
+                            {item.price}c
                           </span>
                         </p>
                       ) : (
                         item.price * item.count
                       )}
                     </td>
-                    <td className="relative">
-                        <img
-                          src={xIcon}
-                          className="cursor-pointer absolute flex top-[65px] w-[12px] h-[12px]"
-                          onClick={() => deleteProduct(item.id)}
-                          alt=""
-                        />
+                    <td>
+                      <img
+                        src={xIcon}
+                        className="cursor-pointer absolute flex bottom-3 md:static right-[50%] w-[12px] h-[12px]"
+                        onClick={() => deleteProduct(item.id)}
+                        alt=""
+                      />
                     </td>
                   </tr>
                 ))}
