@@ -1,23 +1,91 @@
-import React from "react"
-import {
-  Button,
-  Dropdown,
-  Form,
-  Navbar,
-  NavDropdown,
-  Row,
-} from "react-bootstrap"
+import React, { InputHTMLAttributes, useRef, useState } from "react"
+import { Dropdown, Form, Navbar } from "react-bootstrap"
+import { ReactSearchAutocomplete } from "react-search-autocomplete"
 
 import {
   basketIcon,
   catalogIcon,
   logoIcon,
-  rrr,
   searchIcon,
   userIcon,
 } from "../../assets"
 
-export const SearchBar = () => {
+export const SearchBar = ({products}: {products:number}) => {
+  const [search, setSearch] = useState("")
+  const [filterActive, setFilterActive] = useState(false)
+  let data = [
+    "graphic card",
+    "geforce rtx 4090 24g",
+    "samsung 970evo 1tb",
+    "asus rog g15 rtx3060",
+    "samsung s23 512gb",
+    "iphone 14 pro max 256gb",
+  ]
+
+  function searchFilter() {
+    setFilterActive(!filterActive)
+  }
+
+  const items = [
+    {
+      id: 0,
+      name: "graphic card",
+    },
+    {
+      id: 1,
+      name: "geforce rtx 4090 24g",
+    },
+    {
+      id: 2,
+      name: "samsung 970evo 1tb",
+    },
+    {
+      id: 3,
+      name: "asus rog g15 rtx3060",
+    },
+    {
+      id: 4,
+      name: "iphone 14 pro max 256gb",
+    },
+    {
+      id: 5,
+      name: "samsung s23 512gb",
+    },
+  ]
+
+  const handleOnSearch = (string, results) => {
+    // onSearch will have as the first callback parameter
+    // the string searched and for the second the results.
+    console.log(string, results)
+  }
+
+  const handleOnHover = (result) => {
+    // the item hovered
+    console.log(result)
+  }
+
+  const handleOnSelect = (item) => {
+    // the item selected
+    console.log(item)
+  }
+
+  const handleOnFocus = () => {
+    console.log("Focused")
+  }
+
+  const formatResult = (item) => {
+    return (
+      <>
+        <span style={{ display: "block", textAlign: "left" }}>
+          id: {item.id}
+        </span>
+        <span style={{ display: "block", textAlign: "left" }}>
+          name: {item.name}
+        </span>
+      </>
+    )
+  }
+
   return (
     <div className="container">
       <Navbar bg="light gap-[5px] bg-white flex-wrap  justify-content-between sm:gap-[30px]">
@@ -39,24 +107,36 @@ export const SearchBar = () => {
             <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Form className="d-flex flex-1 relative order-md-0 order-1 w-full min-w-[300px]">
+        <Form className="flex-1 relative order-md-0 order-1 w-full z-50 min-w-[300px] ">
           <img
             src={searchIcon}
-            className="absolute left-[22px] top-[15px] cursor-pointer"
+            className="absolute z-50 top-[17px] left-[22px]"
             alt=""
           />
-          <Form.Control
-            type="search"
-            placeholder="Найти товар"
-            className="me-2 pl-[48px] text-[#333333] bg-[#F6F6F6] border-1 border-[#E6E6E6] border-solid h-[48px]"
-            aria-label="Найти товар"
+          <ReactSearchAutocomplete
+            styling={{
+              borderRadius: "5px",
+              backgroundColor: "#F6F6F6",
+              border: "1px solid #E6E6E6",
+              height: "48px",
+              paddingLeft: "50px",
+            }}
+            items={items}
+            onSearch={handleOnSearch}
+            onHover={handleOnHover}
+            onSelect={handleOnSelect}
+            onFocus={handleOnFocus}
+            autoFocus
+            showIcon={false}
+            formatResult={formatResult}
           />
         </Form>
         <div className="flex gap-[16px]">
-          <button className='hover:bg-[#EA5A5A] duration-200 border-1 border-[#E6E6E6] bg-[#F7F7F7] border-solid rounded-[5px] h-[48px] w-[48px] flex justify-center items-center'>
+          <button className="hover:bg-[#EA5A5A] relative duration-200 border-1 border-[#3b3131] bg-[#F7F7F7] border-solid rounded-[5px] h-[48px] w-[48px] flex justify-center items-center">
             <img src={basketIcon} alt="" />
+            <span className="absolute z-40 bg-[#E11E26] right-7 top-6 text-white text-[10px] w-[13px] h-[13px] flex justify-center items-center   rounded-full ">{products}</span>
           </button>
-          <button className='hover:bg-[#EA5A5A] duration-200 border-1 border-[#E6E6E6] bg-[#F7F7F7] border-solid rounded-[5px] h-[48px] w-[48px] flex justify-center items-center'>
+          <button className="hover:bg-[#EA5A5A] duration-200 border-1 border-[#E6E6E6] bg-[#F7F7F7] border-solid rounded-[5px] h-[48px] w-[48px] flex justify-center items-center">
             <img src={userIcon} alt="" />
           </button>
         </div>

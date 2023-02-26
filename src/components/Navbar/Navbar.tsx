@@ -38,7 +38,7 @@ export const Menu = () => {
                 <p className="flex justify-center items-center gap-[5px]">
                   <img src={emailLogo} alt="email" /> info@Kanzler.kg
                 </p>
-                <p
+                <div
                   style={{ textDecoration: "underline red 1px" }}
                   className="flex justify-center items-center gap-[5px]"
                 >
@@ -61,7 +61,7 @@ export const Menu = () => {
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
-                </p>
+                </div>
               </div>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

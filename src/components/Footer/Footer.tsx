@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="pt-[80px] py-[40px]">
           <h1 className="text-[40px] mb-[60px]">Kanzler&Bürger</h1>
           <Row className="flex justify-between gap-[80px] mb-[80px]">
-            <Col>
+            <Col className='flex flex-col justify-between items-start '>
               <ul className="footer-menu">
                 <li>Меню</li>
                 <li>Акции</li>
@@ -21,7 +21,7 @@ export const Footer = () => {
               </ul>
               <img className="mt-[50px]" src={logoFooter} alt="" />
             </Col>
-            <Col>
+            <Col className='flex-col justify-between items-center'>
               <ul className="footer-menu">
                 <li>Категории</li>
                 <li> Бумага </li>
@@ -36,8 +36,8 @@ export const Footer = () => {
                 <li> Сувенирная продукция </li>
               </ul>
             </Col>
-            <Col>
-              <ul className="footer-menu">
+            <Col className='flex-col justify-between items-center'>
+              <ul className="footer-menu ">
                 <li>Контакты</li>
                 <li> Огонбаева, 222 </li>
                 <li>
@@ -56,7 +56,7 @@ export const Footer = () => {
                   <img src={phone3} alt="" /> 0312 90 22 34{" "}
                 </li>
               </ul>
-              <ul className="footer-menu mt-[18px]">
+              <ul className="footer-menu mt-[18px] ">
                 <li> Уметалиева, 84 </li>
                 <li>
                   <img src={phone2} alt="" /> 0777 90 22 36{" "}
@@ -66,7 +66,7 @@ export const Footer = () => {
                 </li>
               </ul>
             </Col>
-            <Col className="relative">
+            <Col className="relative flex flex-col justify-between  items-start">
               <ul className="footer-menu">
                 <li>Мы в соц сетях</li>
                 <li>
@@ -80,10 +80,10 @@ export const Footer = () => {
                 </li>
               </ul>
 
-              <img className="absolute right-28 bottom-0" src={logoStudio} alt="" />
+              <img className="w-[73] h-[33px]" src={logoStudio} alt="" />
             </Col>
           </Row>
-          <hr />
+          <hr className="mt-[80px]" />
           <p className="mt-[40px] text-[14px] opacity-[0.6]">
             Kanzler & Burger (c) 2017. All rights reserved
           </p>

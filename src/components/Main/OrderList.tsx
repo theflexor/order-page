@@ -1,44 +1,23 @@
-import React, { useState } from "react"
+import React, { useState, useTransition } from "react"
 import { Button, Collapse, Row } from "react-bootstrap"
 import Table from "react-bootstrap/esm/Table"
 
+import { IProduct } from "../../App"
 import { scopeTop, xIcon } from "../../assets"
 
-interface IProduct {
-  image: string
-  title: string
-  article: string
-  count: number
-  price: number
-  action?: number
+interface IorderList {
+  deleteProduct: (id: number) => void
+  increaseProduct: (id: number) => void
+  decreaseProduct: (id: number) => void
+  products: IProduct[]
 }
 
-let lists: IProduct[] = [
-  {
-    image: "/src/assets/Rectangle 3207-1.png",
-    title: "Lorem ipsum dolor sit amet consectetur. Duis",
-    article: "L434-GH43",
-    count: 0,
-    price: 300,
-  },
-  {
-    image: "/src/assets/Rectangle 3207-2.png",
-    title: "Lorem ipsum dolor sit amet consectetur. Duis",
-    article: "L434-GH43",
-    count: 0,
-    price: 300,
-  },
-  {
-    image: "/src/assets/Rectangle 3207.png",
-    title: "Lorem ipsum dolor sit amet consectetur. Duis",
-    article: "L434-GH43",
-    count: 0,
-    price: 300,
-    action: 10000,
-  },
-]
-
-export const OrderList = () => {
+export const OrderList: React.FC<IorderList> = ({
+  deleteProduct,
+  increaseProduct,
+  decreaseProduct,
+  products,
+}) => {
   const [open, setOpen] = useState(false)
   console.log(open)
 
@@ -61,7 +40,7 @@ export const OrderList = () => {
           />
         </button>
       </div>
-      <Collapse in={open} dimension="height">
+      <Collapse in={open} dimension="height" className="p-0">
         <div className="example-collapse-text rounded-[5px] shadow-primary">
           <div className="px-[0px] md:p-[30px]">
             <Table className=" tableList">
@@ -75,8 +54,8 @@ export const OrderList = () => {
                 </tr>
               </thead>
               <tbody>
-                {lists.map((item) => (
-                  <tr className="align-middle h-[140px]">
+                {products.map((item) => (
+                  <tr key={item.id} className="align-middle h-[140px]">
                     <td>
                       <div>
                         <img src={item.image} alt="" />
@@ -89,18 +68,24 @@ export const OrderList = () => {
                     <td>{item.article}</td>
                     <td>
                       <div className="bg-[#F7F7F7] rounded-[5px] flex justify-around items-center flex-col md:flex-row">
-                        <button>-</button>
+                        <button onClick={() => decreaseProduct(item.id)}>
+                          -
+                        </button>
                         {item.count}
-                        <button>+</button>
+                        <button onClick={() => increaseProduct(item.id)}>
+                          +
+                        </button>
                       </div>
                     </td>
                     <td>
                       {item.action ? (
                         <p className="flex flex-col md:flex-row">
                           <span
-                            className={`${item.action ? 'text-[#f00000] mr-[4px]' : ''}`}
+                            className={`${
+                              item.action ? "text-[#f00000] mr-[4px]" : ""
+                            }`}
                           >
-                            {item.action}c
+                            {item.action * item.count}c
                           </span>
                           <span
                             style={{
@@ -109,14 +94,23 @@ export const OrderList = () => {
                               color: "gray",
                             }}
                           >
-                            {item.price}c
+                            {item.price }c
                           </span>
                         </p>
                       ) : (
-                        item.price
+                        item.price * item.count
                       )}
                     </td>
-                    <td>x</td>
+                    <td>
+                      <button className="hover:bg-red-200 rounded-full  p-1 duration-200">
+                        <img
+                          src={xIcon}
+                          className="cursor-pointer"
+                          onClick={() => deleteProduct(item.id)}
+                          alt=""
+                        />
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
